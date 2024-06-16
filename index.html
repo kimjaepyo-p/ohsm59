@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깃으로 출력하고 싶어하는 깃페이지</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        // 동적 객체 만들기
+        document.querySelector("#root").innerHTML = "<h1>동적객체</h1>"
+
+        // navi 데이터 동적겍체
+        const navidata = [{
+            navitext : "네이버",
+            href : "http://www.naver.com"
+
+        },
+        {
+            navitext : "다음",
+            href : "http://www.daum.net"
+
+        },
+        {
+            navitext : "구글",
+            href : "http://www.google.com"
+
+        }
+        
+    ]
+
+    let mytag = "";
+    mytag += `<h2>네비베이션</h2>`;
+
+    mytag += `<ul>`;
+
+    for( x in navidata)
+    {
+        mytag += `<li>
+            <a href='${navidata[x].href}'>${navidata[x].navitext}</a>
+            </li>`;
+    }
+    mytag += `<ul>`;
+
+    document.querySelector("#root").innerHTML = mytag;
+
+    document.querySelector("#root").innerHTML += `<a href=${navidata[0].href} >
+         ${navidata[0].navitext} </a>`
+         document.querySelector("#root").innerHTML += `<a href=${navidata[1].href} >
+         ${navidata[1].navitext} </a>`
+         document.querySelector("#root").innerHTML += `<a href=${navidata[2].href} >
+         ${navidata[2].navitext} </a>`
+    </script>
+</body>
+</html>
